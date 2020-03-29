@@ -16,10 +16,10 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Restore
-      run: dotnet restore src/Consolpunke.Tests
+      run: dotnet restore src/Consolpunke
     - name: Build
-      run: dotnet build src/Consolpunke.Tests --configuration Release --no-restore
+      run: dotnet build src/Consolpunke --configuration Release --no-restore
     - name: Test
-      run: dotnet test src/Consolpunke.Tests --configuration Release --no-build
+      run: dotnet test src/Consolpunke.Tests --configuration Release
     - name: Package
-      run: dotnet pack src/Consolpunke --no-restore --include-symbols --include-source --no-build
+      run: dotnet pack src/Consolpunke --include-symbols --include-source --no-build

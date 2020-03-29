@@ -8,18 +8,16 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
+    - name: Setup
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: Install dependencies
-      run: dotnet restore
+    - name: Restore
+      run: dotnet restore src/Consolpunke
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build src/Consolpunke --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test src/Consolpunke.Tests --configuration Release

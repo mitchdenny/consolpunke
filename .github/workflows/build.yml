@@ -19,5 +19,9 @@ jobs:
       run: dotnet restore src/Consolpunke
     - name: Build
       run: dotnet build src/Consolpunke --configuration Release --no-restore /p:VersionSuffix=build.$GITHUB_RUN_ID
-    - name: Test
+    - name: Unit Test
       run: dotnet test src/Consolpunke.Tests --configuration Release
+    - name: Smoke Test
+      run: |
+        dotnet tool install -g Consolpunke -add-source bin/Release
+        consolpunke --version
